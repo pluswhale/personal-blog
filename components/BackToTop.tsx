@@ -31,13 +31,14 @@ export function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-50 p-4 rounded-full transition-all duration-500 cursor-pointer btn-accent ${
+      className={`fixed bottom-8 right-8 z-50 p-4 rounded-full transition-all duration-500 cursor-pointer glass ${
         isVisible
           ? 'opacity-100 translate-y-0'
           : 'opacity-0 translate-y-10 pointer-events-none'
       }`}
       style={{
         willChange: 'opacity, transform',
+        borderColor: 'var(--color-accent-primary)',
       }}
       aria-label="Back to top"
     >

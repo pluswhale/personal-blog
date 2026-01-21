@@ -133,9 +133,9 @@ export default function Home() {
             <ScrollReveal delay={400}>
               <div className="space-y-6">
                 <div
-                  className="p-6 rounded-2xl transition-all duration-300 hover:translate-x-2 cursor-pointer glass"
+                  className="p-6 rounded-2xl transition-all duration-300 hover:translate-x-2 cursor-pointer glass hover:shadow-lg"
                   style={{
-                    borderLeft: '4px solid var(--color-accent-primary)',
+                    borderLeft: '3px solid var(--color-accent-primary)',
                     willChange: 'transform',
                   }}
                 >
@@ -150,9 +150,9 @@ export default function Home() {
                   </p>
                 </div>
                 <div
-                  className="p-6 rounded-2xl transition-all duration-300 hover:translate-x-2 cursor-pointer glass"
+                  className="p-6 rounded-2xl transition-all duration-300 hover:translate-x-2 cursor-pointer glass hover:shadow-lg"
                   style={{
-                    borderLeft: '4px solid var(--color-accent-secondary)',
+                    borderLeft: '3px solid var(--color-accent-secondary)',
                     willChange: 'transform',
                   }}
                 >
@@ -167,9 +167,9 @@ export default function Home() {
                   </p>
                 </div>
                 <div
-                  className="p-6 rounded-2xl transition-all duration-300 hover:translate-x-2 cursor-pointer glass"
+                  className="p-6 rounded-2xl transition-all duration-300 hover:translate-x-2 cursor-pointer glass hover:shadow-lg"
                   style={{
-                    borderLeft: '4px solid var(--color-accent-primary)',
+                    borderLeft: '3px solid var(--color-accent-primary)',
                     willChange: 'transform',
                   }}
                 >

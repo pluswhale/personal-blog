@@ -41,28 +41,28 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Main cursor */}
+      {/* Main cursor - More Subtle */}
       <div
         className="fixed pointer-events-none z-[9999] mix-blend-screen transition-transform duration-150"
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 2 : 1})`,
+          transform: `translate(-50%, -50%) scale(${isHovering ? 1.8 : 1})`,
           willChange: 'transform',
         }}
       >
         <div
           className="rounded-full transition-all duration-300"
           style={{
-            width: isHovering ? '40px' : '20px',
-            height: isHovering ? '40px' : '20px',
+            width: isHovering ? '35px' : '20px',
+            height: isHovering ? '35px' : '20px',
             background: 'var(--color-accent-primary)',
-            opacity: isHovering ? 0.4 : 0.2,
+            opacity: isHovering ? 0.25 : 0.15,
           }}
         />
       </div>
       
-      {/* Trailing dot */}
+      {/* Trailing dot - Softer */}
       <div
         className="fixed pointer-events-none z-[9998] transition-all duration-300 ease-out"
         style={{
@@ -75,10 +75,10 @@ export function CustomCursor() {
         <div
           className="rounded-full"
           style={{
-            width: '8px',
-            height: '8px',
+            width: '6px',
+            height: '6px',
             background: 'var(--color-accent-primary)',
-            opacity: 0.6,
+            opacity: 0.4,
           }}
         />
       </div>

@@ -48,8 +48,8 @@ export function ContactForm() {
             color: 'var(--color-text-primary)',
           }}
           onFocus={(e) => {
-            e.target.style.borderColor = 'var(--color-accent-primary)'
-            e.target.style.boxShadow = 'var(--shadow-glow)'
+            e.target.style.borderColor = 'rgba(100, 255, 218, 0.4)'
+            e.target.style.boxShadow = '0 0 10px rgba(100, 255, 218, 0.1)'
           }}
           onBlur={(e) => {
             e.target.style.borderColor = 'transparent'
@@ -82,8 +82,8 @@ export function ContactForm() {
             color: 'var(--color-text-primary)',
           }}
           onFocus={(e) => {
-            e.target.style.borderColor = 'var(--color-accent-primary)'
-            e.target.style.boxShadow = 'var(--shadow-glow)'
+            e.target.style.borderColor = 'rgba(100, 255, 218, 0.4)'
+            e.target.style.boxShadow = '0 0 10px rgba(100, 255, 218, 0.1)'
           }}
           onBlur={(e) => {
             e.target.style.borderColor = 'transparent'
@@ -116,8 +116,8 @@ export function ContactForm() {
             color: 'var(--color-text-primary)',
           }}
           onFocus={(e) => {
-            e.target.style.borderColor = 'var(--color-accent-primary)'
-            e.target.style.boxShadow = 'var(--shadow-glow)'
+            e.target.style.borderColor = 'rgba(100, 255, 218, 0.4)'
+            e.target.style.boxShadow = '0 0 10px rgba(100, 255, 218, 0.1)'
           }}
           onBlur={(e) => {
             e.target.style.borderColor = 'transparent'

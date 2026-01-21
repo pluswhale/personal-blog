@@ -17,11 +17,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         willChange: 'transform, opacity',
       }}
     >
-      {/* Hover overlay with action buttons */}
+      {/* Hover overlay with action buttons - More Subtle */}
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center gap-4 z-10 p-8"
         style={{
-          background: 'linear-gradient(135deg, rgba(100, 255, 218, 0.95) 0%, rgba(87, 203, 255, 0.95) 100%)',
+          background: 'linear-gradient(135deg, rgba(100, 255, 218, 0.15) 0%, rgba(87, 203, 255, 0.15) 100%)',
+          backdropFilter: 'blur(12px)',
         }}
       >
         <a
