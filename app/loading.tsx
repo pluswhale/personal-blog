@@ -1,13 +1,31 @@
 export default function Loading() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="animate-pulse space-y-8">
-        <div className="h-12 bg-gray-200 dark:bg-gray-800 rounded w-3/4"></div>
-        <div className="space-y-3">
-          <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded"></div>
-          <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-5/6"></div>
-          <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-4/6"></div>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="flex gap-2 justify-center mb-4">
+          <div
+            className="w-4 h-4 rounded-full"
+            style={{
+              background: 'var(--color-accent-primary)',
+              animation: 'pulse 1.5s ease-in-out infinite',
+            }}
+          />
+          <div
+            className="w-4 h-4 rounded-full"
+            style={{
+              background: 'var(--color-accent-primary)',
+              animation: 'pulse 1.5s ease-in-out infinite 0.2s',
+            }}
+          />
+          <div
+            className="w-4 h-4 rounded-full"
+            style={{
+              background: 'var(--color-accent-primary)',
+              animation: 'pulse 1.5s ease-in-out infinite 0.4s',
+            }}
+          />
         </div>
+        <p style={{ color: 'var(--color-text-secondary)' }}>Loading...</p>
       </div>
     </div>
   )

@@ -2,22 +2,244 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    /* Dark Theme with Blue Accents - Apple Glass */
+    --color-bg-primary: #0a192f;
+    --color-bg-secondary: #112240;
+    --color-accent-primary: #64ffda;
+    --color-accent-secondary: #57cbff;
+    --color-text-primary: #e6f1ff;
+    --color-text-secondary: #8892b0;
+
+    /* Apple Glass Effect */
+    --glass-bg: rgba(17, 34, 64, 0.7);
+    --glass-border: rgba(100, 255, 218, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.36);
+
+    /* Shadows */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 20px 40px rgba(100, 255, 218, 0.2);
+    --shadow-glow: 0 0 20px rgba(100, 255, 218, 0.3);
+
+    /* Transitions - Optimized for performance */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+/* Font Loading Optimization */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    src: local('Inter');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-display: swap;
+    src: local('JetBrains Mono');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    color: var(--foreground);
-    background: var(--background);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--color-text-primary);
+    background: var(--color-bg-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+    /* Performance optimization */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code,
+pre {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* Selection */
+::selection {
+    background: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent-primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-secondary);
+}
+
+/* Prevent cursor conflicts with input elements */
+input,
+textarea,
+select,
+button,
+a {
+    cursor: auto !important;
+}
+
+/* Smooth Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Utility Classes with Performance Optimization */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-smooth);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Apple Glass Effect */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    will-change: transform, opacity;
+}
+
+/* Ensure z-index hierarchy */
+.glass {
+    position: relative;
+    z-index: 10;
+}
+
+/* Navigation should be above glass elements */
+nav.glass {
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+}
+
+/* Glass Buttons - Optimized */
+.btn-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition-smooth);
+    will-change: transform, opacity;
+}
+
+.btn-glass:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-3px);
+    border-color: var(--color-accent-primary);
+}
+
+.btn-glass:active {
+    transform: translateY(-1px);
+}
+
+/* Accent Buttons */
+.btn-accent {
+    background: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+    border: none;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+    transition: var(--transition-smooth);
+    will-change: transform, opacity;
+}
+
+.btn-accent:hover {
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.6);
+    transform: translateY(-3px) scale(1.05);
 }
 
 @layer utilities {

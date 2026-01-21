@@ -3,27 +3,29 @@ import './globals.css'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { CustomCursor } from '@/components/CustomCursor'
+import { BackToTop } from '@/components/BackToTop'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Personal Blog',
-    template: '%s | Personal Blog',
+    default: 'Personal Brand | Developer Portfolio',
+    template: '%s | Developer Portfolio',
   },
-  description: 'A personal blog and portfolio showcasing my work and thoughts',
-  keywords: ['blog', 'portfolio', 'web development', 'programming'],
+  description: 'Elegant personal brand website showcasing development work, blog posts, and projects',
+  keywords: ['developer', 'portfolio', 'web development', 'blog', 'personal brand'],
   authors: [{ name: 'Your Name' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://yourdomain.com',
-    siteName: 'Personal Blog',
-    title: 'Personal Blog',
-    description: 'A personal blog and portfolio showcasing my work and thoughts',
+    siteName: 'Developer Portfolio',
+    title: 'Personal Brand | Developer Portfolio',
+    description: 'Elegant personal brand website showcasing development work, blog posts, and projects',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Personal Blog',
-    description: 'A personal blog and portfolio showcasing my work and thoughts',
+    title: 'Personal Brand | Developer Portfolio',
+    description: 'Elegant personal brand website showcasing development work, blog posts, and projects',
   },
 }
 
@@ -34,13 +36,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+      <body className="min-h-screen">
         <ThemeProvider>
+          <CustomCursor />
           <Navigation />
-          <main className="flex-1">
+          <main className="pt-20">
             {children}
           </main>
           <Footer />
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>
