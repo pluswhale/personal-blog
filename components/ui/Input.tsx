@@ -51,11 +51,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-text-primary mb-2"
+            className="block text-sm font-semibold mb-3 uppercase tracking-wider"
+            style={{ color: 'var(--color-accent-primary)' }}
           >
             {label}
             {props.required && (
-              <span className="text-accent-primary ml-1">*</span>
+              <span className="ml-1">*</span>
             )}
           </label>
         )}
@@ -71,15 +72,30 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             id={inputId}
             className={cn(
-              'w-full px-4 py-3 bg-bg-secondary text-text-primary rounded-lg border-2 border-transparent',
-              'focus:border-accent-primary focus:outline-none transition-all duration-300',
+              'w-full px-5 py-4 rounded-xl border-2 transition-all duration-300 focus:outline-none',
               'placeholder:text-text-secondary/50',
-              'hover:border-accent-primary/30',
               error && 'border-red-500 focus:border-red-500',
               leftIcon && 'pl-10',
               rightIcon && 'pr-10',
               className
             )}
+            style={{
+              background: 'rgba(17, 34, 64, 0.5)',
+              borderColor: error ? 'rgb(239, 68, 68)' : 'rgba(100, 255, 218, 0.1)',
+              color: 'var(--color-text-primary)',
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(100, 255, 218, 0.4)'
+              e.currentTarget.style.boxShadow = '0 0 15px rgba(100, 255, 218, 0.1)'
+              e.currentTarget.style.background = 'rgba(17, 34, 64, 0.7)'
+            }}
+            onBlur={(e) => {
+              if (!error) {
+                e.currentTarget.style.borderColor = 'rgba(100, 255, 218, 0.1)'
+              }
+              e.currentTarget.style.boxShadow = 'none'
+              e.currentTarget.style.background = 'rgba(17, 34, 64, 0.5)'
+            }}
             aria-invalid={error ? 'true' : 'false'}
             aria-describedby={
               error
@@ -88,7 +104,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 ? `${inputId}-helper`
                 : undefined
             }
-            whileFocus={{ scale: 1.01 }}
             {...props}
           />
 

@@ -64,10 +64,16 @@ export function TypewriterText({
   }, [currentText, isDeleting, currentTextIndex, texts, speed, delay])
 
   return (
-    <span className="inline-flex items-center">
-      <span className="text-accent-primary">{currentText}</span>
+    <span className="inline-flex items-center ml-2">
+      <span 
+        className="font-semibold"
+        style={{ color: 'var(--color-accent-primary)' }}
+      >
+        {currentText}
+      </span>
       <motion.span
-        className="inline-block w-0.5 h-8 ml-1 bg-accent-primary"
+        className="inline-block w-0.5 h-8 ml-1"
+        style={{ background: 'var(--color-accent-primary)' }}
         animate={{ opacity: [1, 0, 1] }}
         transition={{ duration: 0.8, repeat: Infinity }}
         aria-hidden="true"
