@@ -2,13 +2,34 @@
 
 import { useEffect, useRef, ReactNode } from 'react'
 
-interface ScrollRevealProps {
+export interface ScrollRevealProps {
+  /** Content to be revealed on scroll */
   children: ReactNode
+  /** Delay in milliseconds before revealing the element */
   delay?: number
+  /** Additional CSS classes */
   className?: string
 }
 
-export function ScrollReveal({ children, delay = 0, className = '' }: ScrollRevealProps) {
+/**
+ * ScrollReveal component that animates elements when they enter the viewport
+ * 
+ * Uses Intersection Observer API to detect when elements are visible
+ * and applies reveal animations with optional delays.
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * <ScrollReveal delay={200}>
+ *   <h1>This will fade in when scrolled into view</h1>
+ * </ScrollReveal>
+ * ```
+ */
+export function ScrollReveal({
+  children,
+  delay = 0,
+  className = '',
+}: ScrollRevealProps) {
   const elementRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -28,13 +49,14 @@ export function ScrollReveal({ children, delay = 0, className = '' }: ScrollReve
       }
     )
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current)
+    const element = elementRef.current
+    if (element) {
+      observer.observe(element)
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current)
+      if (element) {
+        observer.unobserve(element)
       }
     }
   }, [delay])

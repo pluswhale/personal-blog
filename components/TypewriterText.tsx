@@ -1,21 +1,45 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
-interface TypewriterTextProps {
+export interface TypewriterTextProps {
+  /** Array of texts to cycle through */
   texts: string[]
+  /** Typing speed in milliseconds per character */
   speed?: number
+  /** Delay in milliseconds before starting to delete text */
   delay?: number
 }
 
-export function TypewriterText({ texts, speed = 100, delay = 2000 }: TypewriterTextProps) {
+/**
+ * TypewriterText component that animates text with a typewriter effect
+ * 
+ * Automatically cycles through an array of texts, typing and deleting each one.
+ * Features a blinking cursor animation.
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * <TypewriterText
+ *   texts={['Developer', 'Designer', 'Creator']}
+ *   speed={100}
+ *   delay={2000}
+ * />
+ * ```
+ */
+export function TypewriterText({
+  texts,
+  speed = 100,
+  delay = 2000,
+}: TypewriterTextProps) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [currentText, setCurrentText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
     const fullText = texts[currentTextIndex]
-    
+
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
@@ -40,16 +64,14 @@ export function TypewriterText({ texts, speed = 100, delay = 2000 }: TypewriterT
   }, [currentText, isDeleting, currentTextIndex, texts, speed, delay])
 
   return (
-    <span
-      className="inline-block"
-      style={{
-        color: 'var(--color-accent-primary)',
-        borderRight: '3px solid var(--color-accent-primary)',
-        paddingRight: '5px',
-        animation: 'blink 0.7s step-end infinite',
-      }}
-    >
-      {currentText}
+    <span className="inline-flex items-center">
+      <span className="text-accent-primary">{currentText}</span>
+      <motion.span
+        className="inline-block w-0.5 h-8 ml-1 bg-accent-primary"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{ duration: 0.8, repeat: Infinity }}
+        aria-hidden="true"
+      />
     </span>
   )
 }
