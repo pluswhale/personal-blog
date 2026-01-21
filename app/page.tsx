@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { ScrollReveal } from '@/components/ScrollReveal'
 import { ContactForm } from '@/components/ContactForm'
 import { TypewriterText } from '@/components/TypewriterText'
 import { Particles } from '@/components/Particles'
+import { MotionDiv } from '@/components/MotionDiv'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -29,7 +29,7 @@ export default function Home() {
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <ScrollReveal>
+          <MotionDiv>
             <h1
               className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-6"
               style={{ 
@@ -40,9 +40,9 @@ export default function Home() {
             >
               Hi, I'm Your Name
             </h1>
-          </ScrollReveal>
+          </MotionDiv>
 
-          <ScrollReveal delay={200}>
+          <MotionDiv delay={0.2}>
             <p
               className="text-2xl sm:text-3xl lg:text-4xl mb-12 h-16 flex items-center justify-center"
             >
@@ -58,9 +58,9 @@ export default function Home() {
                 delay={2000}
               />
             </p>
-          </ScrollReveal>
+          </MotionDiv>
 
-          <ScrollReveal delay={400}>
+          <MotionDiv delay={0.4}>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="#about"
@@ -75,7 +75,7 @@ export default function Home() {
                 Get in Touch
               </a>
             </div>
-          </ScrollReveal>
+          </MotionDiv>
         </div>
 
         {/* Scroll Indicator */}
@@ -100,17 +100,17 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
+          <MotionDiv>
             <h2
               className="text-5xl font-bold mb-16 text-center"
               style={{ color: 'var(--color-text-primary)' }}
             >
               About Me
             </h2>
-          </ScrollReveal>
+          </MotionDiv>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <ScrollReveal delay={200}>
+            <MotionDiv delay={0.2}>
               <div className="glass p-12 rounded-3xl">
                 <p
                   className="text-lg leading-relaxed mb-6"
@@ -128,9 +128,9 @@ export default function Home() {
                   contributing to open-source projects, or writing about my experiences.
                 </p>
               </div>
-            </ScrollReveal>
+            </MotionDiv>
 
-            <ScrollReveal delay={400}>
+            <MotionDiv delay={0.4}>
               <div className="space-y-6">
                 <div
                   className="p-6 rounded-2xl transition-all duration-300 hover:translate-x-2 cursor-pointer glass hover:shadow-lg"
@@ -184,7 +184,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </ScrollReveal>
+            </MotionDiv>
           </div>
         </div>
       </section>
@@ -192,20 +192,18 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
+          <MotionDiv>
             <h2
               className="text-5xl font-bold mb-16 text-center"
               style={{ color: 'var(--color-text-primary)' }}
             >
               Get in Touch
             </h2>
-          </ScrollReveal>
+          </MotionDiv>
 
-          <ScrollReveal delay={200}>
-            <ContactForm />
-          </ScrollReveal>
+          <ContactForm />
 
-          <ScrollReveal delay={400}>
+          <MotionDiv delay={0.4}>
             <div className="mt-16 flex justify-center gap-6">
               {[
                 { icon: 'github', href: 'https://github.com/yourusername', label: 'GitHub' },
@@ -234,7 +232,7 @@ export default function Home() {
                 </a>
               ))}
             </div>
-          </ScrollReveal>
+          </MotionDiv>
         </div>
       </section>
     </>
